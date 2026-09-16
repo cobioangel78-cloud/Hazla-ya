@@ -1,0 +1,11 @@
+{
+  "name": "Hazla Ya",
+  "short_name": "Hazla Ya",
+  "description": "No la dejes para después.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f1117",
+  "theme_color": "#0f1117",
+  "orientation": "portrait",
+  "icons": []
+}
