@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hazla Ya</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>📚 Hazla Ya</h1>
+        <p>No la dejes para después.</p>
+    </header>
+
+    <main>
+
+       <section class="stats">
+
+    <div>
+        <strong id="pendingCount">0</strong>
+        <span>Pendientes</span>
+    </div>
+
+    <div>
+        <strong id="completedCount">0</strong>
+        <span>Completadas</span>
+    </div>
+
+</section>
+
+
+<section class="progress-stats">
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            🔥
+        </div>
+
+        <div>
+
+            <strong id="currentStreak">
+                0 días
+            </strong>
+
+            <span>
+                Racha actual
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            🏆
+        </div>
+
+        <div>
+
+            <strong id="bestStreak">
+                0 días
+            </strong>
+
+            <span>
+                Mejor racha
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            📊
+        </div>
+
+        <div>
+
+            <strong id="completionRate">
+                0%
+            </strong>
+
+            <span>
+                Cumplimiento
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <button id="newTaskBtn" class="new-task">
+            ＋ Nueva tarea
+        </button>
+
+
+        <section id="taskList" class="task-list">
+
+            <div class="empty">
+                <div>📖</div>
+                <p>No tienes tareas pendientes</p>
+                <small>Agrega una y deja de procrastinar 💀</small>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- VENTANA PARA CREAR TAREA -->
+
+    <div id="taskModal" class="modal">
+
+        <div class="modal-content">
+
+            <button id="closeModal" class="close">
+                ✕
+            </button>
+
+            <h2>Nueva tarea</h2>
+
+            <label for="taskName">
+                ¿Qué tienes que hacer?
+            </label>
+
+            <input
+                type="text"
+                id="taskName"
+                placeholder="Ej. Terminar tarea de química"
+            >
+
+
+            <label for="taskDescription">
+                Descripción
+            </label>
+
+            <textarea
+                id="taskDescription"
+                placeholder="Ej. Hacer ejercicios 1 al 20..."
+            ></textarea>
+
+
+            <label for="taskTime">
+                ⏰ ¿A qué hora empiezo?
+            </label>
+
+            <input
+                type="time"
+                id="taskTime"
+            >
+
+
+            <label for="reminderInterval">
+                🔔 Recordarme cada
+            </label>
+
+            <select id="reminderInterval">
+
+                <option value="5">
+                    5 minutos
+                </option>
+
+                <option value="15" selected>
+                    15 minutos
+                </option>
+
+                <option value="30">
+                    30 minutos
+                </option>
+
+                <option value="60">
+                    1 hora
+                </option>
+
+            </select>
+
+
+            <label class="evidence-option">
+
+                <input
+                    type="checkbox"
+                    id="requiresEvidence"
+                    checked
+                >
+
+                📸 Requerir evidencia para completar
+
+            </label>
+
+
+            <button id="saveTaskBtn" class="save">
+                Crear tarea
+            </button>
+
+        </div>
+
+    </div>
+
+<input
+    type="file"
+    id="evidenceInput"
+    accept="image/*"
+    capture="environment"
+    style="display: none;"
+>
+    <script src="app.js"></script>
+
+</body>
+</html>

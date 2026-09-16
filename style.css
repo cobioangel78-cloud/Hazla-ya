@@ -1,0 +1,363 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f1117;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+header {
+    padding: 30px 20px 20px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+}
+
+header p {
+    color: #9ca3af;
+    font-size: 15px;
+}
+
+main {
+    padding: 0 20px 40px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ESTADÍSTICAS */
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.stats div {
+    background: #181b24;
+    border: 1px solid #272b36;
+    border-radius: 16px;
+    padding: 18px;
+}
+
+.stats strong {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.stats span {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+
+/* BOTÓN NUEVA TAREA */
+
+.new-task {
+    width: 100%;
+    padding: 17px;
+    border: none;
+    border-radius: 15px;
+    background: #ffffff;
+    color: #111318;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 0 20px;
+}
+
+.new-task:active {
+    transform: scale(0.98);
+}
+
+
+/* LISTA */
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #9ca3af;
+}
+
+.empty div {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.empty p {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+
+/* TARJETA DE TAREA */
+
+.task {
+    background: #181b24;
+    border: 1px solid #272b36;
+    border-radius: 17px;
+    padding: 18px;
+}
+
+.task h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.task p {
+    color: #9ca3af;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.task-info {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.badge {
+    background: #222632;
+    color: #cbd5e1;
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 600px;
+    background: #181b24;
+    border-radius: 25px 25px 0 0;
+    padding: 25px 20px 30px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.close {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    border: none;
+    background: #272b36;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* FORMULARIO */
+
+label {
+    display: block;
+    font-size: 14px;
+    margin: 16px 0 7px;
+    color: #d1d5db;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    background: #0f1117;
+    border: 1px solid #303541;
+    color: white;
+    border-radius: 12px;
+    padding: 13px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #ffffff;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.evidence-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.evidence-option input {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* GUARDAR */
+
+.save {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 13px;
+    background: #ffffff;
+    color: #111318;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.save:active {
+    transform: scale(0.98);
+}
+
+
+/* TAREA COMPLETADA */
+
+.task.completed {
+    opacity: 0.55;
+}
+
+.task.completed h3 {
+    text-decoration: line-through;
+}
+/* =========================================
+   🚨 MODO HAZLA YA
+========================================= */
+
+.task.urgent {
+    border: 1px solid #ff3b3b;
+    box-shadow: 0 0 18px rgba(255, 59, 59, 0.18);
+    animation: urgentPulse 2s infinite;
+}
+
+.task.urgent h3 {
+    color: #ff5c5c;
+}
+
+.urgent-badge {
+    display: inline-block;
+    background: #3a1717;
+    color: #ff7777;
+    border: 1px solid #662222;
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.urgent-time {
+    color: #ff7777;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+@keyframes urgentPulse {
+
+    0% {
+        box-shadow: 0 0 10px rgba(255, 59, 59, 0.10);
+    }
+
+    50% {
+        box-shadow: 0 0 22px rgba(255, 59, 59, 0.25);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(255, 59, 59, 0.10);
+    }
+
+}
+.late-time {
+    color: #ff9b9b;
+    font-size: 13px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+/* =========================================
+   ESTADÍSTICAS EXTRA
+========================================= */
+
+.progress-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0 20px;
+}
+
+.stat-card {
+    background: #181b24;
+    border: 1px solid #272b36;
+    border-radius: 16px;
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.stat-icon {
+    width: 45px;
+    height: 45px;
+
+    background: #222632;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 3px;
+}
+
+.stat-card span {
+    color: #9ca3af;
+    font-size: 12px;
+}
